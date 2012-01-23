@@ -3,4 +3,8 @@ Utilities for OpenVSP.
 Author:  Nathan Alday (n.c.alday@gmail.com)
 License: BSD 2 Clause: http://www.opensource.org/licenses/BSD-2-Clause
 
-Currently contains only the airfoil_utilities.py. run 'python airfoil_utilities.py -h' for more information.
+Currently contains only the airfoil_utilities.py. run 
+    'python airfoil_utilities.py -h' 
+for more information.
+
+OpenVSP website: http://www.openvsp.org/
