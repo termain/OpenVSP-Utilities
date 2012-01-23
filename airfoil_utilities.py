@@ -174,7 +174,7 @@ if __name__=="__main__":
     parser.add_argument( 'files', metavar='FILE', 
         help='Name of file to be converted',nargs='+')
     parser.add_argument( '--format', metavar='FORMAT',
-        help='Format of output files, defaults to selig', 
+        help='Format of input files, defaults to selig', 
         action='store', default='selig', type=str  )
 
     args=parser.parse_args()

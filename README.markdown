@@ -10,4 +10,3 @@ Currently contains only the airfoil\_utilities.py. airfoil\_utilities.py convert
         python airfoil_utilities.py -h 
 
 for more information.
-
