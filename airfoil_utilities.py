@@ -28,12 +28,14 @@ class Airfoil(object):
     lower_surface_points = []
 
     def __str__(self):
-        string = "{comment}\n{name}\n{symmetric}\n{upper}\n{lower}\n".format(
+        string = "{comment}\n{name}\n{symmetric}\n{upper}\n".format(
                     comment=self.comment,
                     name=self.name,
                     symmetric=int(self.symmetric_flag),
-                    upper=self.num_upper_surface_points,
-                    lower=self.num_lower_surface_points )
+                    upper=self.num_upper_surface_points )
+
+        if self.symmetric_flag == False:
+            string = string+"{0}\n".format( num_lower_surface_points )
             
         for point in self.upper_surface_points:
             string = string + "{0} {1}\n".format( point[0], point[1] )
@@ -60,11 +62,12 @@ class Airfoil(object):
             
         #read lower surface points starting from the line after the blank line
         #that separates upper and lower surface points
-        for xx in range( 1+self.num_upper_surface_points,
+        if self.symmetric_flag == False:
+            for xx in range( 1+self.num_upper_surface_points,
                          1+self.num_upper_surface_points+self.num_lower_surface_points ):
-            chord_position = Decimal( lines[xx].split()[0] )
-            height = Decimal( lines[xx].split()[1] )
-            self.lower_surface_points.append( (chord_position, height) )
+                chord_position = Decimal( lines[xx].split()[0] )
+                height = Decimal( lines[xx].split()[1] )
+                self.lower_surface_points.append( (chord_position, height) )
 
     def load_from_af_format( self, file_id ):
         """Load airfoil from file object in .af format"""
@@ -73,7 +76,8 @@ class Airfoil(object):
         self.name = lines.pop(0).strip('\n')
         self.symmetric_flag = bool( int( lines.pop(0).split()[0] ) )
         self.num_upper_surface_points = int( lines.pop(0).split()[0] )
-        self.num_lower_surface_points = int( lines.pop(0).split()[0] )
+        if self.symmetric_flag == False:
+            self.num_lower_surface_points = int( lines.pop(0).split()[0] )
         self._load_lednicer_like( lines )
 
     def load_from_lednicer_format(self, file_id):
@@ -180,5 +184,3 @@ if __name__=="__main__":
     args=parser.parse_args()
 
     convert_multiple_files( args.files, format = args.format )
-
-    
