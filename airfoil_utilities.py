@@ -35,16 +35,16 @@ class Airfoil(object):
                     upper=self.num_upper_surface_points )
 
         if self.symmetric_flag == False:
-            string = string+"{0}\n".format( num_lower_surface_points )
+            string = string+"{0}\n".format( self.num_lower_surface_points )
             
         for point in self.upper_surface_points:
-            string = string + "{0} {1}\n".format( point[0], point[1] )
+            string = string + "{0:f} {1:f}\n".format( point[0], point[1] )
 
         #pad space between upper and lower points
         string = string+"\n"
 
         for point in self.lower_surface_points:
-            string = string + "{0} {1}\n".format( point[0], point[1] )
+            string = string + "{0:f} {1:f}\n".format( point[0], point[1] )
 
         return( string )
 
