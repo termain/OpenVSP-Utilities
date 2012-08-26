@@ -23,30 +23,30 @@ A set of guides for downloading and using the utilities.
 
 2. Install git if not already installed.
 
-    $ sudo apt-get install git
+        $ sudo apt-get install git
 
 3. Clone the OpenVSP-Utilities repository from github.
 
-    $ git clone https://github.com/termain/OpenVSP-Utilities.git
+        $ git clone https://github.com/termain/OpenVSP-Utilities.git
 
 4. Move to the OpenVSP-Utilities directory.
 
-    $ cd OpenVSP-Utilities
+        $ cd OpenVSP-Utilities
 
 5. Run the airfoil_utilities.py script on the demo.selig airfoil file.
 
-    $ python airfoil_utilities.py demo.selig
+        $ python airfoil_utilities.py demo.selig
 
 6. Check to see that the OpenVSP formatted demo.af was created with `ls`.
 
-    $ ls demo.af
-    demo.af
+        $ ls demo.af
+        demo.af
 
 7. Open the two files in gedit to compare them.
 
-    $ gedit demo.af demo.selig &
+        $ gedit demo.af demo.selig &
 
 8. Use the `-h` flag for more info.
 
-    $ python airfoil_utilities.py -h
+        $ python airfoil_utilities.py -h
 
