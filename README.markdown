@@ -10,3 +10,5 @@ Currently contains only the airfoil\_utilities.py. airfoil\_utilities.py convert
         python airfoil_utilities.py -h 
 
 for more information.
+
+As a demonstration, try running python airfoil_utilities.py demo.selig. This should convert the airfoil described in demo.selig to an OpenVSP formatted airfoil in a file named demo.af.
